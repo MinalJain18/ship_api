@@ -21,6 +21,8 @@ test:
   database: db/test.pg
   
 production:
-  <<: *default
-  database: db/production.pg
+  database: example_production
+  adapter: postgresql
+  host: localhost
+  password:
 
