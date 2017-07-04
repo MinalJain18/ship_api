@@ -3,8 +3,11 @@ class ContainerController < ApplicationController
   #This method allocate the location to the container
   def allocate
     container = params[:container]    
-    locations = ContainerCrud.allocate(container) 
-    render :json => locations    
+    @locations, result = ContainerCrud.allocate(container) 
+    if result == 'SUCCESS'
+      render :action => "allocate"
+    else
+      render :json => @locations 
+    end
   end
-  
 end
