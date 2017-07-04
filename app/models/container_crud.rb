@@ -2,6 +2,7 @@ class ContainerCrud
 
   def self.allocate(containers)
     begin
+      result = 'SUCCESS'
       locations = List::LinkedList.new
       containers.each{|port,number|      
         number.to_i.times do
@@ -9,9 +10,10 @@ class ContainerCrud
         end
       }
       locations.reset_containers 
-      locations
+      return locations , result
     rescue Exception => ex      
-      return {"error"=> ex.to_s}     
+      locations.reset_containers 
+      return {"error"=> ex.to_s} , 'ERROR'
     end
   end
   
