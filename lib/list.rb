@@ -17,8 +17,7 @@ module List
       @container = Container.new
       if value==nil
         @head = nil
-      else
-       
+      else       
         @container.assign_container_location
         @head = Node.new(value,@head,@container)
       end
@@ -50,17 +49,18 @@ module List
         return false
       end
     end
-
-
+    
+    
     # To return the linked list elements in a printable format  array like string
 		def to_s
-      arr ="["
+      #arr ="["
+      arr = []
       node = @head
       while (node!=nil) do
-        arr << node.value.to_s + '{' +  node.container.row.to_s + ',' +  node.container.column.to_s + ','+  node.container.level.to_s + '}' << ","
+        arr << 'Port:' + node.value.to_s + '{' + 'R:' + node.container.row.to_s + ',C:' +  node.container.column.to_s + ',L:'+  node.container.level.to_s + '}' 
         node = node.next
       end
-      arr[arr.length-1] = "]"
+      # arr[arr.length-1] = "]"
       return arr
     end
 

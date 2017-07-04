@@ -1,4 +1,4 @@
-require 'singleton'
+#require 'singleton'
 
 class Container
   attr_accessor :capacity, :row,:column ,:level
@@ -72,7 +72,7 @@ class Container
     end
     @@capacity = @@capacity - 1
     
-    if @@rows < 9 && @@columns < 4             
+    if @@rows <= 9 && @@columns < 4             
       increment_columns
     elsif @@rows == 9 && @@columns == 4
       increment_level
